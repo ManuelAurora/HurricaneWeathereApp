@@ -14,7 +14,8 @@ class ViewController: UIViewController
     @IBOutlet weak var _currentTemperatureLabel  : UILabel!
     @IBOutlet weak var _currentHumidityLabel     : UILabel!
     @IBOutlet weak var _currentPercipitationLabel: UILabel!
-    
+    @IBOutlet weak var _currentWeatherIcon       : UIImageView!
+    @IBOutlet weak var _currentWeatherSummary    : UILabel!
     
     private let _forecastAPIKey = "93d2e057f3fa4c7b1ce50cc14fcc56e6"
     
@@ -28,9 +29,11 @@ class ViewController: UIViewController
             guard let currentWeather = currentWeather else { return }
             
             dispatch_async(dispatch_get_main_queue()) {
-                if let temperature = currentWeather._temperature { self._currentTemperatureLabel.text = "\(temperature)°" }
-                if let humidity = currentWeather._humidity { self._currentHumidityLabel.text = "\(humidity)%" }
-                if let percipitation = currentWeather._precipChance { self._currentPercipitationLabel.text = "\(percipitation)%" }                
+                if let icon          = currentWeather._icon         { self._currentWeatherIcon.image = icon }
+                if let summary       = currentWeather._summary      { self._currentWeatherSummary.text = "\(summary)" }
+                if let humidity      = currentWeather._humidity     { self._currentHumidityLabel.text = "\(humidity)%"}
+                if let temperature   = currentWeather._temperature  { self._currentTemperatureLabel.text = "\(temperature)°" }
+                if let percipitation = currentWeather._precipChance { self._currentPercipitationLabel.text = "\(percipitation)%" }
             }
         }
     }
