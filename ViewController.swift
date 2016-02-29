@@ -14,8 +14,10 @@ class ViewController: UIViewController
     @IBOutlet weak var _currentTemperatureLabel  : UILabel!
     @IBOutlet weak var _currentHumidityLabel     : UILabel!
     @IBOutlet weak var _currentPercipitationLabel: UILabel!
-    @IBOutlet weak var _currentWeatherIcon       : UIImageView!
     @IBOutlet weak var _currentWeatherSummary    : UILabel!
+    @IBOutlet weak var _refreshButton            : UIButton! 
+    @IBOutlet weak var _currentWeatherIcon       : UIImageView!
+    @IBOutlet weak var _activityIndicator        : UIActivityIndicatorView!
     
     private let _forecastAPIKey = "93d2e057f3fa4c7b1ce50cc14fcc56e6"
     
@@ -23,6 +25,16 @@ class ViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        retrieveWeatherForecast()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func retrieveWeatherForecast() {
         let forecastService = ForecastService(APIKey: _forecastAPIKey)
         forecastService.getForecast(coordinate.lat, long: coordinate.long) {
             (let currentWeather) in
@@ -34,15 +46,23 @@ class ViewController: UIViewController
                 if let humidity      = currentWeather._humidity     { self._currentHumidityLabel.text = "\(humidity)%"}
                 if let temperature   = currentWeather._temperature  { self._currentTemperatureLabel.text = "\(temperature)°" }
                 if let percipitation = currentWeather._precipChance { self._currentPercipitationLabel.text = "\(percipitation)%" }
+                self.toggleRefreshAnimation(false)
             }
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func refreshWeather() {
+        toggleRefreshAnimation(true)
+        retrieveWeatherForecast()
     }
     
-    
+    func toggleRefreshAnimation(on: Bool) {
+        _refreshButton.hidden = on
+        if on {
+            _activityIndicator.startAnimating()
+        } else {
+            _activityIndicator.stopAnimating()
+        }
+    }
 }
 

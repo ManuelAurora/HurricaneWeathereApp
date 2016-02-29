@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WA-or-W09">
-                                <rect key="frame" x="175" y="205" width="251" height="191"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUMIDITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwn-Yr-evc">
                                 <rect key="frame" x="175" y="404" width="81" height="21"/>
                                 <animations/>
@@ -52,25 +45,50 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUP-eT-Waa">
-                                <rect key="frame" x="270" y="404" width="60" height="60"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="4ya-Hu-bQr"/>
-                                    <constraint firstAttribute="height" constant="60" id="NfW-7b-mxh"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcatraz Island, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I3-OE-sJW">
-                                <rect key="frame" x="215" y="165" width="170" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-UN-N8r">
+                                <rect key="frame" x="257" y="536" width="86" height="24"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-UN-N8r">
-                                <rect key="frame" x="257" y="504" width="86" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9H-2b-KcE">
+                                <rect key="frame" x="279" y="34" width="43" height="43"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="refreshWeather" destination="BYZ-38-t0r" eventType="touchUpInside" id="xgt-YN-ejg"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lyd-Qb-8hq">
+                                <rect key="frame" x="185" y="135" width="230" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUP-eT-Waa">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="4ya-Hu-bQr"/>
+                                            <constraint firstAttribute="height" constant="60" id="NfW-7b-mxh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcatraz Island, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I3-OE-sJW">
+                                        <rect key="frame" x="60" y="18" width="170" height="24"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-Eu-Ljl">
+                                <rect key="frame" x="290" y="46" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WA-or-W09">
+                                <rect key="frame" x="175" y="205" width="251" height="191"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -78,37 +96,45 @@
                         <animations/>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="lyd-Qb-8hq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W9H-2b-KcE" secondAttribute="bottom" priority="750" constant="60" id="2Fd-zw-c7e"/>
                             <constraint firstItem="neZ-UN-N8r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="58b-qE-N4D"/>
                             <constraint firstItem="myi-RJ-ZFR" firstAttribute="top" secondItem="Pm1-8N-9Bc" secondAttribute="bottom" constant="8" id="5Of-th-7Ox"/>
-                            <constraint firstItem="4WA-or-W09" firstAttribute="top" secondItem="NUP-eT-Waa" secondAttribute="bottom" constant="-259" id="60q-uy-gEe"/>
                             <constraint firstItem="myi-RJ-ZFR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="85.5" id="7ht-9x-T5j"/>
-                            <constraint firstItem="NUP-eT-Waa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9lb-B4-7Ig"/>
                             <constraint firstItem="gwn-Yr-evc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-84.5" id="9xp-xs-4X5"/>
                             <constraint firstItem="Pm1-8N-9Bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="85.5" id="B64-vx-zeY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="neZ-UN-N8r" secondAttribute="bottom" constant="72" id="JXQ-rs-fKv"/>
-                            <constraint firstItem="5I3-OE-sJW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QvF-Ox-PV1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="neZ-UN-N8r" secondAttribute="bottom" priority="750" constant="40" id="JXQ-rs-fKv"/>
+                            <constraint firstItem="1dS-Eu-Ljl" firstAttribute="centerX" secondItem="W9H-2b-KcE" secondAttribute="centerX" id="MNY-9I-Ud5"/>
+                            <constraint firstItem="W9H-2b-KcE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="PU8-JG-qoy"/>
                             <constraint firstItem="Pm1-8N-9Bc" firstAttribute="top" secondItem="4WA-or-W09" secondAttribute="bottom" constant="8" id="SfJ-3q-lln"/>
+                            <constraint firstItem="1dS-Eu-Ljl" firstAttribute="centerY" secondItem="W9H-2b-KcE" secondAttribute="centerY" id="WYP-JY-P2d"/>
+                            <constraint firstItem="neZ-UN-N8r" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tL1-AQ-dXq" secondAttribute="bottom" constant="30" id="dtI-pp-NZY"/>
                             <constraint firstItem="4WA-or-W09" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hJq-et-eFm"/>
                             <constraint firstItem="tL1-AQ-dXq" firstAttribute="top" secondItem="4WA-or-W09" secondAttribute="bottom" constant="37" id="hZm-fW-WPF"/>
                             <constraint firstItem="tL1-AQ-dXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-84.5" id="l1W-61-fIy"/>
                             <constraint firstItem="4WA-or-W09" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m2O-Zv-Gor"/>
-                            <constraint firstItem="4WA-or-W09" firstAttribute="top" secondItem="5I3-OE-sJW" secondAttribute="bottom" constant="16" id="r3z-h0-RY0"/>
+                            <constraint firstItem="4WA-or-W09" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lyd-Qb-8hq" secondAttribute="bottom" constant="10" id="q7s-Fm-ayG"/>
+                            <constraint firstItem="W9H-2b-KcE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tFe-79-fwc"/>
+                            <constraint firstItem="lyd-Qb-8hq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y2j-Cy-df9"/>
                             <constraint firstItem="gwn-Yr-evc" firstAttribute="top" secondItem="4WA-or-W09" secondAttribute="bottom" constant="8" id="zic-Hs-UTC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_activityIndicator" destination="1dS-Eu-Ljl" id="237-oH-gBA"/>
                         <outlet property="_currentHumidityLabel" destination="tL1-AQ-dXq" id="Z0C-kH-6Z7"/>
                         <outlet property="_currentPercipitationLabel" destination="myi-RJ-ZFR" id="VP2-Ip-Kc7"/>
                         <outlet property="_currentTemperatureLabel" destination="4WA-or-W09" id="Euq-SJ-gaz"/>
                         <outlet property="_currentWeatherIcon" destination="NUP-eT-Waa" id="8T2-nP-hJn"/>
                         <outlet property="_currentWeatherSummary" destination="neZ-UN-N8r" id="6iw-tn-Rxb"/>
+                        <outlet property="_refreshButton" destination="W9H-2b-KcE" id="qwK-cN-ysU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="316.5" y="145"/>
         </scene>
     </scenes>
     <resources>
         <image name="Default.png" width="16" height="16"/>
+        <image name="refresh" width="43" height="43"/>
     </resources>
 </document>
