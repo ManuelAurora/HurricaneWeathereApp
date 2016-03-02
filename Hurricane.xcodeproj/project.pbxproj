@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		647A00181C87412500489928 /* WeeklyTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A00171C87412500489928 /* WeeklyTableTableViewController.swift */; };
+		647A001A1C8741F600489928 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A00191C8741F600489928 /* BackgroundView.swift */; };
 		648ECA771C7DEA0800BE3CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648ECA761C7DEA0800BE3CF7 /* AppDelegate.swift */; };
 		648ECA791C7DEA0800BE3CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648ECA781C7DEA0800BE3CF7 /* ViewController.swift */; };
 		648ECA7C1C7DEA0800BE3CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 648ECA7A1C7DEA0800BE3CF7 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		647A00171C87412500489928 /* WeeklyTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyTableTableViewController.swift; sourceTree = "<group>"; };
+		647A00191C8741F600489928 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		648ECA731C7DEA0800BE3CF7 /* Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurricane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		648ECA761C7DEA0800BE3CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		648ECA781C7DEA0800BE3CF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				648ECA781C7DEA0800BE3CF7 /* ViewController.swift */,
+				647A00171C87412500489928 /* WeeklyTableTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				648ECA7F1C7DEA0800BE3CF7 /* LaunchScreen.storyboard */,
 				648ECA7A1C7DEA0800BE3CF7 /* Main.storyboard */,
+				647A00191C8741F600489928 /* BackgroundView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 				64AE1B1F1C806A5C00AAD805 /* NetworkOperation.swift in Sources */,
 				648ECA791C7DEA0800BE3CF7 /* ViewController.swift in Sources */,
 				648ECA8B1C7DEE9D00BE3CF7 /* CurrentWeather.swift in Sources */,
+				647A001A1C8741F600489928 /* BackgroundView.swift in Sources */,
+				647A00181C87412500489928 /* WeeklyTableTableViewController.swift in Sources */,
 				64AE1B211C80838500AAD805 /* ForecastService.swift in Sources */,
 				648ECA771C7DEA0800BE3CF7 /* AppDelegate.swift in Sources */,
 			);
