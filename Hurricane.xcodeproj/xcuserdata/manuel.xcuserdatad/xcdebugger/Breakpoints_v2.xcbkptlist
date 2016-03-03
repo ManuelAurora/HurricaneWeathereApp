@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrentWeather.swift"
-            timestampString = "478192065.108659"
+            timestampString = "478697437.208816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "init(weatherDictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrentWeather.swift"
-            timestampString = "478192065.108659"
+            timestampString = "478697437.208816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "init(weatherDictionary:)"
             landmarkType = "5">
          </BreakpointContent>
