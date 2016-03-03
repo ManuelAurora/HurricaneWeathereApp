@@ -15,6 +15,11 @@ class WeeklyTableTableViewController: UITableViewController
     @IBOutlet weak var _currentTempRangeLabel: UILabel!
     @IBOutlet weak var _currentWeatherIcon:    UIImageView!
     
+    @IBAction func refreshWeather() {
+        retrieveWeatherForecast()
+        refreshControl?.endRefreshing()
+    }
+    
     private let _forecastAPIKey = "93d2e057f3fa4c7b1ce50cc14fcc56e6"
     
     let coordinate: (lat: Double, long: Double) = (37.8267,-122.423)
@@ -38,6 +43,10 @@ class WeeklyTableTableViewController: UITableViewController
        
         return 1
     }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Forecast"
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -45,15 +54,22 @@ class WeeklyTableTableViewController: UITableViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell") as! DailyWeatherTableViewCell
         let dailyWeather = _weeklyWeather[indexPath.row]
-        cell.textLabel!.text = dailyWeather._day
+        
+        if let maxTemp = dailyWeather._maxTemperature {
+            cell._dayLabel.text         = dailyWeather._day
+            cell._temperatureLabel.text = "\(maxTemp)"
+            cell._weatherIcon.image     = dailyWeather._icon
+        }
         
         return cell
     }
     
     func configureView() {
         tableView.backgroundView = BackgroundView()
+        
+        tableView.rowHeight = 64
         
         let navBarFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
         let navBarAttributesDictionary: [String : AnyObject] = [
@@ -62,6 +78,32 @@ class WeeklyTableTableViewController: UITableViewController
         ]
         
         navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
+        
+        // Position refresh control above background view
+        refreshControl?.layer.zPosition = tableView.backgroundView!.layer.zPosition + 1
+        refreshControl?.tintColor = UIColor.whiteColor()
+        
+    }
+    
+    // MARK: - Delegate Methods
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 170/255.0, green: 131/255.0, blue: 224/255.0, alpha: 1.0)
+        
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 14.0)
+            header.textLabel?.textColor = UIColor.whiteColor()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        cell?.contentView.backgroundColor = UIColor(red: 165/255.0, green: 142/255.0, blue: 203/255.0, alpha: 1.0)
+        
+        let highlightView = UIView()
+        highlightView.backgroundColor = UIColor(red: 165/255.0, green: 142/255.0, blue: 203/255.0, alpha: 1.0)
+        cell?.selectedBackgroundView = highlightView
     }
     
     // MARK: WEATHER FETCHING

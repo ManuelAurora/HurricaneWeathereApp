@@ -3,13 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Weekly-->
         <scene sceneID="3cc-Wi-jBo">
             <objects>
                 <tableViewController id="esr-me-RbV" customClass="WeeklyTableTableViewController" customModule="Hurricane" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UFP-Bf-lYK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UFP-Bf-lYK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -79,15 +80,64 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" id="xF3-ZW-bR7">
-                                <rect key="frame" x="0.0" y="242" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="64" id="xF3-ZW-bR7" customClass="DailyWeatherTableViewCell" customModule="Hurricane" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="242" width="600" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xF3-ZW-bR7" id="Ogp-Xi-K8A">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temperatureIconBG" translatesAutoresizingMaskIntoConstraints="NO" id="8Rr-SV-wya">
+                                            <rect key="frame" x="191" y="11" width="42" height="44"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="8Rr-SV-wya" secondAttribute="height" multiplier="20:21" id="FSD-1F-Fn7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mG-2c-EGU">
+                                            <rect key="frame" x="203" y="22" width="19" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.074509803921568626" green="0.054901960784313725" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clear-day_large" translatesAutoresizingMaskIntoConstraints="NO" id="zjM-fl-bul">
+                                            <rect key="frame" x="258" y="12" width="40" height="40"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="zjM-fl-bul" secondAttribute="height" multiplier="1:1" id="cqz-63-NIl"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hme-ct-Yk1">
+                                            <rect key="frame" x="321" y="21" width="87" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="hme-ct-Yk1" firstAttribute="centerY" secondItem="Ogp-Xi-K8A" secondAttribute="centerY" id="9ER-hX-Wxw"/>
+                                        <constraint firstItem="8Rr-SV-wya" firstAttribute="centerX" secondItem="Ogp-Xi-K8A" secondAttribute="centerX" constant="-88" id="Cuv-zH-Z4X"/>
+                                        <constraint firstAttribute="bottom" secondItem="zjM-fl-bul" secondAttribute="bottom" constant="11" id="Ffs-1V-9Pr"/>
+                                        <constraint firstItem="zjM-fl-bul" firstAttribute="top" secondItem="Ogp-Xi-K8A" secondAttribute="top" constant="12" id="NXc-r6-66q"/>
+                                        <constraint firstItem="zjM-fl-bul" firstAttribute="top" secondItem="Ogp-Xi-K8A" secondAttribute="top" constant="12" id="RkP-Lh-joa"/>
+                                        <constraint firstItem="8Rr-SV-wya" firstAttribute="top" secondItem="Ogp-Xi-K8A" secondAttribute="top" constant="11" id="Rsg-MU-r1P"/>
+                                        <constraint firstItem="2mG-2c-EGU" firstAttribute="centerX" secondItem="8Rr-SV-wya" secondAttribute="centerX" id="Xoe-TL-An6"/>
+                                        <constraint firstItem="2mG-2c-EGU" firstAttribute="centerY" secondItem="8Rr-SV-wya" secondAttribute="centerY" id="fta-2R-Hs4"/>
+                                        <constraint firstItem="hme-ct-Yk1" firstAttribute="leading" secondItem="zjM-fl-bul" secondAttribute="trailing" constant="23" id="iMM-s6-ez8"/>
+                                        <constraint firstItem="zjM-fl-bul" firstAttribute="centerX" secondItem="Ogp-Xi-K8A" secondAttribute="centerX" constant="-22" id="p30-1T-mhy"/>
+                                        <constraint firstAttribute="bottom" secondItem="zjM-fl-bul" secondAttribute="bottom" constant="11" id="yzj-4n-STh"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="_dayLabel" destination="hme-ct-Yk1" id="3Hh-OC-fxp"/>
+                                    <outlet property="_temperatureLabel" destination="2mG-2c-EGU" id="s2v-wE-MR6"/>
+                                    <outlet property="_weatherIcon" destination="zjM-fl-bul" id="DBB-U7-yxD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,12 +146,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekly" id="dqe-68-sef"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hbp-ZN-coi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <connections>
+                            <action selector="refreshWeather" destination="esr-me-RbV" eventType="valueChanged" id="5by-6k-OfY"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="_curentPercipLabel" destination="bcL-VF-QvD" id="HJa-KK-tkT"/>
                         <outlet property="_currentTempLabel" destination="raM-E9-brT" id="YjS-1O-FKq"/>
                         <outlet property="_currentTempRangeLabel" destination="UTa-az-WU3" id="Ulh-ql-ngM"/>
                         <outlet property="_currentWeatherIcon" destination="XHM-ws-JgT" id="OhP-wN-NSP"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="AMD-CG-LKI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Detail" id="AMD-CG-LKI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dec-fF-kug" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,5 +210,7 @@
     </scenes>
     <resources>
         <image name="clear-day" width="58" height="60"/>
+        <image name="clear-day_large" width="100" height="101"/>
+        <image name="temperatureIconBG" width="42" height="43"/>
     </resources>
 </document>
