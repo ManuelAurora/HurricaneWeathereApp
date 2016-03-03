@@ -66,6 +66,21 @@ class WeeklyTableTableViewController: UITableViewController
         return cell
     }
     
+    // MARK: NAVIGATION
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Detail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let dailyWeather = _weeklyWeather[indexPath.row]
+                
+               (segue.destinationViewController as! ViewController)._dailyWeather = dailyWeather
+            }
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("Detail", sender: nil)
+    }
+    
     func configureView() {
         tableView.backgroundView = BackgroundView()
         
